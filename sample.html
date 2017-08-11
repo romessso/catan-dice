@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            // WebSocket接続
+            var ws = new WebSocket("ws://localhost:5000");
+         
+            // WebSocket open時のイベントハンドラ登録
+            ws.onopen = function()
+            {
+                console.log('Initialize Success');
+            }
+          
+            // WebSocket message受信時のイベントハンドラ登録
+            ws.onmessage = function(message)
+            {
+                console.log('message : ' + message);
+            }
+          
+            // WebSocket error時のイベントハンドラ登録
+            ws.onerror = function()
+            {
+                console.log('Error!');
+            }
+          
+            // WebSocket close時のイベントハンドラ登録
+            ws.onclose = function()
+            {
+                console.log('Connection Close!');
+            }
+          
+            // Windowが閉じられた(例：ブラウザを閉じた)時のイベントを設定
+            window.onbeforeunload = function ()
+            {
+                ws.onclose(); // WebSocket close
+            }
+            function send(){
+                ws.send("{test}");
+            }
+        </script>
+    </head>
+    <body>
+        <a href="#" onclick="send()">送信</a>
+    </body>
+</html>

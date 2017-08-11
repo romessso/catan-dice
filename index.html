@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dice</title>
+	<script src="./lib/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="./style.css">
+	<script src="./pickadate.js-3.5.6/lib/picker.js"></script>
+	<script src="./pickadate.js-3.5.6/lib/picker.date.js"></script>
+	<script src="./pickadate.js-3.5.6/lib/picker.time.js"></script>
+	<script src="./pickadate.js-3.5.6/lib/legacy.js"></script>
+	<script src="./gShake/lib/gShake.js" type="text/javascript"></script>
+
+	<script src="./js/mt.js"></script>
+	<script src="./dice.js"></script>
+	<AUDIO id="hiroshi">
+		<SOURCE src="./audio/hiroshi.m4a" type="audio/mpeg">
+	</AUDIO>
+	<AUDIO id="romen">
+		<SOURCE src="./audio/romen.m4a" type="audio/mpeg">
+	</AUDIO>
+	<AUDIO id="naoya">
+		<SOURCE src="./audio/naoya.m4a" type="audio/mpeg">
+	</AUDIO>
+</head>
+	<br>
+	<input id="fname" type="text" placeholder=""></input>
+	<input id="battle" type="text" ></input>
+	<br><br>
+<body>
+	<button type="button" style="width:60%; height:70px; font-size:30px" onclick="main();">role</button>
+	<button type="button" style="width:30%; height:70px; font-size:30px" onclick="road();">road</button>
+
+	<p style="font-size:300%;" align="center">
+		<span id="dice1"></span> 
+		<font color="red"><span id="dice2"></span></font> 
+		<span id="dice3"></span><br>
+	</p>
+	賽&nbsp;&nbsp;計</br>
+	<span id="stats"></span>
+	<div id="total"></div><br>
+
+    <p>debug: <div id="detail" value=""></div></p>
+	<script type="text/javascript"> 
+		$(document).ready(function() {
+			$(this).gShake(function() {
+				main();
+			});
+		});
+	</script>
+</body>
+</html>
